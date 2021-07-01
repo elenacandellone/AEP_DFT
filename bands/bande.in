@@ -1,0 +1,5 @@
+&BANDS
+outdir = '/home/elena/AEP_DFT/DFT/tmp/bands'
+prefix='Pb'
+filband='bands_Pb'
+/
