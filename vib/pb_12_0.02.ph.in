@@ -1,0 +1,13 @@
+ABC
+&INPUTPH
+prefix = 'Pb',
+recover = .false.,
+fildyn = 'dynq_G_12_0.02',
+fildvscf = 'dvscf',
+outdir = '/home/elena/AEP_DFT/DFT/tmp/vib',
+tr2_ph = 1.0d-12,
+trans = .true.,
+epsil = .false.,
+ldisp = .false.
+/
+0.000000 0.000000 0.000000
