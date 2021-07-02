@@ -1,0 +1,40 @@
+#!/bin/bash
+Ecut="10 15 20 25 30 35 40 50 60 70 80 90 100"
+
+for ec in $Ecut
+do
+er="8"
+er1=$er*$ec
+cat > pb_$ec.scf.in <<EOF
+ &CONTROL
+                       title = 'Lead' ,
+                 calculation = 'scf' ,
+                restart_mode = 'from_scratch' ,
+                      outdir = '../AEP_DFT/DFT/tmp/ecut' ,
+                  pseudo_dir = '../qe-6.7/pseudo/' ,
+                      prefix = 'Pb',
+                      wf_collect = .true.
+ /
+ &SYSTEM
+                       ibrav = 2,
+                   celldm(1) = 9.2225583816,
+                         nat = 1,
+                        ntyp = 1,
+                     ecutwfc = $ec ,
+                     ecutrho = $[$er*$ec],
+                 occupations = 'smearing' ,
+                     degauss = 0.05 ,
+		    smearing ='mp',
+ /
+ &ELECTRONS
+                    conv_thr = 1.0d-9
+ /
+ATOMIC_SPECIES
+   Pb  207.20000  Pb.pbe-dn-rrkjus_psl.1.0.0.UPF
+ATOMIC_POSITIONS crystal 
+   Pb      0.000000000    0.000000000    0.000000000    
+K_POINTS automatic 
+  6 6 6   0 0 0 
+EOF
+~/qe-6.7/bin/pw.x <pb_$ec.scf.in> pb_$ec.scf.out
+done
