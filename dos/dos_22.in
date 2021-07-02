@@ -1,0 +1,5 @@
+&DOS
+outdir = '/home/elena/AEP_DFT/DFT/tmp/bands'
+prefix = 'Pb'
+fildos = 'pb_22.dos'
+/
