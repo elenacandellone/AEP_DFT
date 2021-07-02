@@ -1,0 +1,4 @@
+&FERMI
+outdir= '/home/elena/AEP_DFT/DFT/tmp/fermi'
+prefix= 'Pb'
+&end

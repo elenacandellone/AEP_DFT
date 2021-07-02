@@ -1,0 +1,30 @@
+&CONTROL
+ calculation = 'nscf',
+ restart_mode='from_scratch',
+ prefix = 'Pb',
+ pseudo_dir = '/home/elena/qe-6.7/pseudo/',
+ outdir = '/home/elena/AEP_DFT/DFT/tmp/fermi' ,
+ tprnfor = .true.,
+ tstress = .true.,
+ verbosity = 'high',
+/
+&SYSTEM
+ ibrav = 2,
+ celldm(1) = 9.2225583816,
+ nat = 1,
+ ntyp = 1,
+ ecutwfc = 70 ,
+ ecutrho = 560 ,
+ occupations = 'tetrahedra',
+ nbnd = 8
+/
+&ELECTRONS
+ conv_thr =   1.0d-9
+ diago_full_acc = .true.
+/
+ATOMIC_SPECIES
+Pb  207.20000  Pb.pbe-dn-rrkjus_psl.1.0.0.UPF
+ATOMIC_POSITIONS crystal
+   Pb      0.000000000    0.000000000    0.000000000    
+K_POINTS automatic 
+ 20 20 20 0 0 0
