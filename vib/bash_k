@@ -1,0 +1,62 @@
+#!/bin/bash
+kgrid="8 10 12 14 16 18"
+smearing=" 0.04 0.03 0.02 0.01 0.009"
+
+for k in $kgrid 
+do
+for sigma in $smearing
+do 
+cat > pb_${k}_${sigma}.scf.in <<EOF
+ &CONTROL
+                       title = 'Lead' ,
+                 calculation = 'scf' ,
+                restart_mode = 'from_scratch' ,
+                      outdir = '/home/elena/AEP_DFT/DFT/tmp/vib' ,
+                  pseudo_dir = '/home/elena/qe-6.7/pseudo/' ,
+                      prefix = 'Pb',
+                      wf_collect = .true.
+ /
+ &SYSTEM
+                       ibrav = 2,
+                   celldm(1) = 9.2225583816,
+                         nat = 1,
+                        ntyp = 1,
+                     ecutwfc = 70 ,
+                     ecutrho = 560 ,
+                 occupations = 'smearing' ,
+                     degauss = ${sigma} ,
+		    smearing ='mp',
+ /
+ &ELECTRONS
+                    conv_thr = 1.0d-9 ,
+                    mixing_beta = 0.7
+ /
+ATOMIC_SPECIES
+   Pb  207.20000  Pb.pbe-dn-rrkjus_psl.1.0.0.UPF
+ATOMIC_POSITIONS crystal 
+   Pb      0.000000000    0.000000000    0.000000000    
+K_POINTS automatic 
+  ${k} ${k} ${k}   0 0 0 
+EOF
+~/qe-6.7/bin/pw.x <pb_${k}_${sigma}.scf.in> pb_${k}_${sigma}.scf.out
+
+# Perform the ph computation
+cat > pb_${k}_${sigma}.ph.in << EOF
+ABC
+&INPUTPH
+prefix = 'Pb',
+recover = .false.,
+fildyn = 'dynq_G_${k}_${sigma}',
+fildvscf = 'dvscf',
+outdir = '/home/elena/AEP_DFT/DFT/tmp/vib',
+tr2_ph = 1.0d-12,
+trans = .true.,
+epsil = .false.,
+ldisp = .false.
+/
+0.000000 0.000000 0.000000
+EOF
+~/qe-6.7/bin/ph.x <pb_${k}_${sigma}.ph.in> pb_${k}_${sigma}.ph.out
+done
+done
+
