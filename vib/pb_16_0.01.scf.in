@@ -2,7 +2,7 @@
                        title = 'Lead' ,
                  calculation = 'scf' ,
                 restart_mode = 'from_scratch' ,
-                      outdir = '/home/elena/AEP_DFT/DFT/tmp/' ,
+                      outdir = '/home/elena/AEP_DFT/DFT/tmp/vib' ,
                   pseudo_dir = '/home/elena/qe-6.7/pseudo/' ,
                       prefix = 'Pb',
                       wf_collect = .true.
