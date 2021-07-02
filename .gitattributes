@@ -1,3 +1,4 @@
 *.out filter=lfs diff=lfs merge=lfs -text
 *.gnu filter=lfs diff=lfs merge=lfs -text
 *.pdf filter=lfs diff=lfs merge=lfs -text
+*.bxsf filter=lfs diff=lfs merge=lfs -text
