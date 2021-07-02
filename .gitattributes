@@ -2,3 +2,9 @@
 *.gnu filter=lfs diff=lfs merge=lfs -text
 *.pdf filter=lfs diff=lfs merge=lfs -text
 *.bxsf filter=lfs diff=lfs merge=lfs -text
+*.UPF filter=lfs diff=lfs merge=lfs -text
+*.dat filter=lfs diff=lfs merge=lfs -text
+*.xml filter=lfs diff=lfs merge=lfs -text
+*.wfc filter=lfs diff=lfs merge=lfs -text
+*.wfc1 filter=lfs diff=lfs merge=lfs -text
+*.dvscf filter=lfs diff=lfs merge=lfs -text
