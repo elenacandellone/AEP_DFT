@@ -10,12 +10,12 @@
 /
 &SYSTEM
  ibrav = 2, 
- celldm(1) = 9.2225583816,
+ celldm(1) = 9.29745186,
  nat=1, ntyp=1,
  ecutwfc = 70,
  ecutrho = 560,
                   occupations = 'smearing' ,
-                     degauss = 0.05 ,
+                     degauss = 0.02 ,
 		    smearing ='mp',
 /
 &ELECTRONS
@@ -31,3 +31,5 @@ ATOMIC_POSITIONS crystal
    Pb      0.000000000    0.000000000    0.000000000    
 K_POINTS automatic
 10 10 10 0 0 0
+
+

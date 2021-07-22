@@ -2,14 +2,14 @@
                        title = 'Lead' ,
                  calculation = 'scf' ,
                 restart_mode = 'from_scratch' ,
-                      outdir = '/home/elena/AEP_DFT/LAB/tmp/' ,
+                      outdir = '/home/elena/AEP_DFT/DFT/tmp/ecut' ,
                   pseudo_dir = '/home/elena/qe-6.7/pseudo/' ,
                       prefix = 'Pb',
                       wf_collect = .true.
  /
  &SYSTEM
                        ibrav = 2,
-                   celldm(1) = 9.2225583816,
+                   celldm(1) = 9.297451,
                          nat = 1,
                         ntyp = 1,
                      ecutwfc = 80 ,
@@ -19,8 +19,7 @@
 		    smearing ='mp',
  /
  &ELECTRONS
-                    conv_thr = 1.0d-9 ,
-                    mixing_beta = 0.7
+                    conv_thr = 1.0d-9
  /
 ATOMIC_SPECIES
    Pb  207.20000  Pb.pbe-dn-rrkjus_psl.1.0.0.UPF

@@ -1,5 +1,5 @@
-plot "pb_8.dos" w lp lw 2,\
-"pb_10.dos" w lp lw 2,\
+plot "pb_8.dos" ($1):($2-11.9262)  lp lw 2,\
+"pb_10.dos" ($1):($2-11.9262) w lp lw 2,\
 "pb_12.dos" w lp lw 2,\
 "pb_14.dos" w lp lw 2,\
 "pb_16.dos" w lp lw 2,\

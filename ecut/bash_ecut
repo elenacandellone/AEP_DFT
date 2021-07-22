@@ -10,14 +10,14 @@ cat > pb_$ec.scf.in <<EOF
                        title = 'Lead' ,
                  calculation = 'scf' ,
                 restart_mode = 'from_scratch' ,
-                      outdir = '../AEP_DFT/DFT/tmp/ecut' ,
-                  pseudo_dir = '../qe-6.7/pseudo/' ,
+                      outdir = '/home/elena/AEP_DFT/DFT/tmp/ecut' ,
+                  pseudo_dir = '/home/elena/qe-6.7/pseudo/' ,
                       prefix = 'Pb',
                       wf_collect = .true.
  /
  &SYSTEM
                        ibrav = 2,
-                   celldm(1) = 9.2225583816,
+                   celldm(1) = 9.297451,
                          nat = 1,
                         ntyp = 1,
                      ecutwfc = $ec ,
@@ -36,5 +36,5 @@ ATOMIC_POSITIONS crystal
 K_POINTS automatic 
   6 6 6   0 0 0 
 EOF
-~/qe-6.7/bin/pw.x <pb_$ec.scf.in> pb_$ec.scf.out
+~/qe-6.7/bin/pw.x <pb_$ec.scf.in> /home/elena/AEP_DFT/DFT/ecut/pb_$ec.scf.out
 done
